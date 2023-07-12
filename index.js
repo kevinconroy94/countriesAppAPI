@@ -22,6 +22,10 @@ const corsOptions ={
 
 app.use(cors(corsOptions));
 
+app.get('/', function(req, res){
+    res.sendStatus(200);
+});
+
 app.get('/currencies', async (req, res) => { 
     //console.log('in currency endpoint');
      const exchangeRates = await fetch('https://openexchangerates.org/api/latest.json?app_id=' + process.env.OPEN_EXCHANGE_KEY)
